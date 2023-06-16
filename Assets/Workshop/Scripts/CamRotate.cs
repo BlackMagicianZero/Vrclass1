@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class CamRotate : MonoBehaviour {
 	float RX;
@@ -15,7 +13,7 @@ public class CamRotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-#if UNITY_EDITOR
+		#if UNITY_EDITOR
 		float mx = Input.GetAxis("Mouse Y");
 		float my = Input.GetAxis("Mouse X");
 
@@ -25,16 +23,6 @@ public class CamRotate : MonoBehaviour {
 		RX = Mathf.Clamp(RX, -60, 60);
 
 		transform.eulerAngles = new Vector3(-RX, RY, 0);
-#endif
-		if (Input.GetKeyDown(KeyCode.C)) {
-            SceneManager.LoadScene("Main"); //Main 씬으로 이동
-            Debug.Log("씬이동~");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            SceneManager.LoadScene("0421"); //Main 씬으로 이동
-            Debug.Log("씬이동~");
-        }
-    }
+		#endif
+	}
 }

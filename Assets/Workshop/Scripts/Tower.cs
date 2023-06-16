@@ -11,29 +11,29 @@ public class Tower : MonoBehaviour {
 
 	public GameObject die;
 
-	void Awake()
+    void Awake()
 	{
-        
 		if(Instance == null)
 			Instance = this;
 	}
 
 	void Start()
 	{
-        
 		hp = MAX_HP;
-	}
+    }
 
 	public void Damage()
 	{
 		hp--;
+		Debug.Log("아파요");
 
 		if(hp <= 0)
 		{
 			if(die)
 			{
 				die.SetActive(true);
-			}
+                Debug.Log("주것서");
+            }
 		}
 	}
 }
