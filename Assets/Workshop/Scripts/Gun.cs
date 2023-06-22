@@ -83,6 +83,7 @@ public class Gun : MonoBehaviour
                 explosion.GetComponent<AudioSource>().Play();
             }
             Destroy(hitInfo.transform.gameObject);
+            Score.scoreValue += 1;
         }
         else
         {

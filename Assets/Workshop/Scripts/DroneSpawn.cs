@@ -6,7 +6,8 @@ public class DroneSpawn : MonoBehaviour {
 	public float MIN_TIME = 1;
 	public float MAX_TIME = 5;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		StartCoroutine("CreateDrone");
 	}
 	
@@ -18,6 +19,14 @@ public class DroneSpawn : MonoBehaviour {
 			yield return new WaitForSeconds(createTime);
 
 			Instantiate(drone, transform.position, Quaternion.identity);
+		}
+	}
+
+	void Update()
+	{
+		if(Score.scoreValue >= 10)
+		{
+			MAX_TIME = 3;
 		}
 	}
 }
